@@ -1,5 +1,10 @@
 require_relative './scrapbox.rb'
 
 date = ARGV.empty? ? Date.today : Date.parse(ARGV[0])
-#ScrapBox.new.open(date, 'ima1zumi')
-puts ScrapBox.new.body(date)
+
+scrap = Scrapbox.new('ima1zumi')
+
+title = Scrapbox.date_title(date)
+body = Scrapbox.body(date)
+
+scrap.open(title, body)

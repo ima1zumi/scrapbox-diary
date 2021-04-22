@@ -1,12 +1,12 @@
 require 'uri'
 require 'date'
 
-class ScrapBox
+class Scrapbox
   def initialize(project)
     @project = project
   end
 
-  def body(date)
+  def self.body(date)
     "#日記 ##{s(date, '%Y-%m-%d')} ##{s(date, '%Y年%m月%d日')} ##{s(date, '%Y年%m月')} ##{s(date, '%Y年')} ##{s(date, '%m月')} ##{s(date, '%m月%d日')} ##{s(date, '%A')}"
   end
 
@@ -39,7 +39,3 @@ class ScrapBox
     "#{project_url}/#{encoded_title}?body=#{encoded_body}"
   end
 end
-
-scrap = ScrapBox.new('ima1zumi')
-title = ScrapBox.date_title(Date.today) + 'ベーコンエッグ'
-scrap.open(title, 'バターチキンカレー, チョレギサラダ')

@@ -7,7 +7,13 @@ class Scrapbox
   end
 
   def self.body(date)
-    "#日記 ##{s(date, '%Y-%m-%d')} ##{s(date, '%Y年%m月%d日')} ##{s(date, '%Y年%m月')} ##{s(date, '%Y年')} ##{s(date, '%m月')} ##{s(date, '%m月%d日')} ##{s(date, '%A')}"
+    <<~STR
+    やったこと
+
+    気持ち
+
+    #日記 ##{s(date, '%Y-%m-%d')} ##{s(date, '%Y年%m月%d日')} ##{s(date, '%Y年%m月')} ##{s(date, '%Y年')} ##{s(date, '%m月')} ##{s(date, '%m月%d日')} ##{s(date, '%A')}
+    STR
   end
 
   def open(title, body)

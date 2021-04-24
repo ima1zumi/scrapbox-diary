@@ -1,9 +1,10 @@
 require 'rspec'
 require_relative './scrapbox.rb'
 
-RSpec.describe ScrapBox do
+RSpec.describe Scrapbox do
   describe '#s' do
-    subject { ScrapBox.new(Date.new(2021, 1, 23)).s(format) }
+    let(:date) { Date.parse('2021-01-23') }
+    subject { Scrapbox.s(date, format) }
 
     context 'フォーマットが空文字列の場合' do
       let(:format) { '' }

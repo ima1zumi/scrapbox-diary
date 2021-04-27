@@ -17,7 +17,7 @@ class Scrapbox
     前の日：[#{date_title(date.dup - 1)}]
     次の日：[#{date_title(date.dup + 1)}]
 
-    ##{s(date, '%Y-%m-%d')} ##{s(date, '%Y年%m月')} ##{s(date, '%Y年')} ##{s(date, '%m月')} ##{s(date, '%m月%d日')} ##{s(date, '%A')} #日記
+    ##{s(date, '%Y-%m-%d')} ##{s(date, '%Y年%m月')} ##{s(date, '%Y年')} ##{s(date, '%m月')} ##{s(date, '%A')} #日記
     STR
   end
 

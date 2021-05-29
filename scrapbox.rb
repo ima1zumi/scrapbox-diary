@@ -12,8 +12,6 @@ class Scrapbox
     <<~STR
     [* やったこと]
 
-    [* イメージ]
-
     [* リンク]
     前の日：[#{date_title(date.dup - 1)}]
     次の日：[#{date_title(date.dup + 1)}]
@@ -25,10 +23,6 @@ class Scrapbox
   def open(title, body)
     system(%Q(open "#{build_url(title, body)}"))
   end
-
-#  def open_with_date_title(date, body)
-#    open(date_title(date), body)
-#  end
 
   def self.date_title(date)
     s(date, "#{DIARY_PREFIX}%Y-%m-%d_%a")

@@ -1,6 +1,10 @@
 require 'rspec'
 require_relative './scrapbox.rb'
 
+RSpec.configure do |config|
+    config.default_formatter = 'doc'
+end
+
 RSpec.describe Scrapbox do
   describe '#s' do
     let(:date) { Date.parse('2021-01-23') }

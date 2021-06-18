@@ -2,13 +2,13 @@ require 'uri'
 require 'date'
 
 class Scrapbox
-  DIARY_PREFIX= '🖋'
+  DIARY_PREFIX = '🖋'
 
   def initialize(project)
     @project = project
   end
 
-  def self.body(date)
+  def self.body(date, description: DIARY)
     <<~STR
     [* やったこと]
 
@@ -20,12 +20,38 @@ class Scrapbox
     STR
   end
 
+  def self.monthly(date)
+    <<~STR
+    [* お仕事]
+
+    [* やったこと]
+
+    [* 作ったもの]
+
+    [* 気持ち]
+
+    [* 最近の興味]
+
+    [* 読んだもの、読んでるもの]
+
+    [* リンク]
+    前の月：[#{s(date.next_month, '%Y年%m月')}]
+    次の月：[#{s(date.prev_month, '%Y年%m月')}]
+
+    ##{s(date, '%Y年%m月')} ##{s(date, '%m月')} ##{s(date, '%Y年')}
+    STR
+  end
+
   def open(title, body)
     system(%Q(open "#{build_url(title, body)}"))
   end
 
   def self.date_title(date)
     s(date, "#{DIARY_PREFIX}%Y-%m-%d_%a")
+  end
+
+  def self.monthly_title(date)
+    s(date, '%Y年%m月')
   end
 
   def self.s(date, str)

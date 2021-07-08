@@ -8,7 +8,7 @@ class Scrapbox
     @project = project
   end
 
-  def self.body(date, description: DIARY)
+  def self.body(date)
     <<~STR
     [* やったこと]
 

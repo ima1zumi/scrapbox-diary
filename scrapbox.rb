@@ -10,7 +10,7 @@ class Scrapbox
 
   def self.body(date)
     <<~STR
-    [* やったこと]
+    [* 📝]
 
     [* リンク]
     前の日：[#{date_title(date.dup - 1)}]
